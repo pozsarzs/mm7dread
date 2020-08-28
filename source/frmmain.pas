@@ -25,59 +25,40 @@ type
   { TForm1 }
   TForm1 = class(TForm)
     Bevel1: TBevel;
-    Bevel10: TBevel;
-    Bevel11: TBevel;
-    Bevel12: TBevel;
-    Bevel13: TBevel;
-    Bevel14: TBevel;
-    Bevel15: TBevel;
+    Bevel16: TBevel;
     Bevel2: TBevel;
     Bevel3: TBevel;
-    Bevel4: TBevel;
-    Bevel5: TBevel;
-    Bevel6: TBevel;
-    Bevel7: TBevel;
-    Bevel8: TBevel;
-    Bevel9: TBevel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
     ComboBox1: TComboBox;
     Edit1: TEdit;
     GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
-    GroupBox3: TGroupBox;
     Label1: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
     Shape1: TShape;
-    Shape10: TShape;
-    Shape11: TShape;
-    Shape12: TShape;
-    Shape13: TShape;
-    Shape14: TShape;
+    Shape15: TShape;
     Shape2: TShape;
-    Shape3: TShape;
-    Shape4: TShape;
-    Shape5: TShape;
-    Shape6: TShape;
-    Shape7: TShape;
-    Shape8: TShape;
-    Shape9: TShape;
-    SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -263,16 +244,62 @@ procedure TForm1.ComboBox1Change(Sender: TObject);
 begin
   if length(ComboBox1.Text) = 0 then
   begin
-    SpeedButton1.Enabled := False;
     SpeedButton2.Enabled := False;
     SpeedButton3.Enabled := False;
   end
   else
   begin
-    SpeedButton1.Enabled := True;
     SpeedButton2.Enabled := True;
     SpeedButton3.Enabled := True;
   end;
+end;
+
+// refresh displays
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+
+end;
+
+// turn off green LED
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+
+end;
+
+// turn on green LED
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+
+end;
+
+// turn off yellow LED
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+
+end;
+
+// turn on yellow LED
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+
+end;
+
+// turn off red LED
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+
+end;
+
+// turn on red LED
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+
+end;
+
+// turn off all LEDs
+procedure TForm1.Button8Click(Sender: TObject);
+begin
+
 end;
 
 // events of Form1
@@ -306,8 +333,6 @@ end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  Bevel2.Width := (Form1.Width div 2) - 6;
-  Bevel3.Width := Bevel2.Width;
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);

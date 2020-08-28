@@ -22,6 +22,7 @@ uses
 
 var
   value0, value1, value2, value3: TStringList;
+  green, yellow, red: boolean;
   exepath: shortstring;
   lang: string[2];
   uids: string;
@@ -39,7 +40,7 @@ const
   {$I config.pas.in}
 {$ENDIF}
 
-function getdatafromdevice(url, uid: string): boolean;
+function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 function getexepath: string;
 function getlang: string;
 function loadconfiguration(filename: string): boolean;
@@ -55,22 +56,23 @@ function SHGetFolderPath(hwndOwner: HWND; nFolder: integer; hToken: THandle;
 implementation
 
 // get data from controller device via http
-function getdatafromdevice(url, uid: string): boolean;
+function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
+const
+  cmdstr: array[0..8] of string=('version',
+                                 'get/all',
+                                 'set/all/off',
+                                 'set/greenled/off',
+                                 'set/greenled/on',
+                                 'set/yellowled/off',
+                                 'set/yellowled/on',
+                                 'set/redled/off',
+                                 'set/redled/on');
 begin
   getdatafromdevice := True;
   value0.Clear;
-  value1.Clear;
-  value2.Clear;
-  value3.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '?uid=' + uid + '&value=0', value0) then
-      getdatafromdevice := False;
-    if not HttpGetText(url + '?uid=' + uid + '&value=1', value1) then
-      getdatafromdevice := False;
-    if not HttpGetText(url + '?uid=' + uid + '&value=2', value2) then
-      getdatafromdevice := False;
-    if not HttpGetText(url + '?uid=' + uid + '&value=3', value3) then
+    if not HttpGetText(url + '/' +cmdstr[cmd] + '?uid=' + uid, value0) then
       getdatafromdevice := False;
     Free;
   end;
