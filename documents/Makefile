@@ -1,5 +1,5 @@
 # +----------------------------------------------------------------------------+
-# | MM7DRead v0.1 * Status reader program for MM5D device                      |
+# | MM7DRead v0.1 * Status reader program for MM7D device                      |
 # | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>            |
 # | Makefile                                                                   |
 # | Makefile for documents                                                     |
