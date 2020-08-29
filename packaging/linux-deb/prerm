@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
-if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/doc/mm5dread ]; then
-  rm -f /usr/doc/mm5dread
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/doc/mm7dread ]; then
+  rm -f /usr/doc/mm7dread
 fi
