@@ -21,7 +21,7 @@ uses
   Classes, Dialogs, INIFiles, SysUtils, {$IFDEF WIN32}Windows,{$ENDIF} httpsend;
 
 var
-  value: TStringList;
+  Value: TStringList;
   green, yellow, red: boolean;
   exepath: shortstring;
   lang: string[2];
@@ -32,6 +32,7 @@ var
 const
   CSIDL_PROFILE = 40;
   SHGFP_TYPE_CURRENT = 0;
+
 {$ENDIF}
 
 {$IFDEF FHS}
@@ -58,21 +59,21 @@ implementation
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 const
-  cmdstr: array[0..8] of string=('version',
-                                 'get/all',
-                                 'set/all/off',
-                                 'set/greenled/off',
-                                 'set/greenled/on',
-                                 'set/yellowled/off',
-                                 'set/yellowled/on',
-                                 'set/redled/off',
-                                 'set/redled/on');
+  cmdstr: array[0..8] of string = ('version',
+    'get/all',
+    'set/all/off',
+    'set/greenled/off',
+    'set/greenled/on',
+    'set/yellowled/off',
+    'set/yellowled/on',
+    'set/redled/off',
+    'set/redled/on');
 begin
   getdatafromdevice := True;
-  value.Clear;
+  Value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' +cmdstr[cmd] + '?uid=' + uid, value) then
+    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then
       getdatafromdevice := False;
     Free;
   end;
@@ -113,7 +114,7 @@ begin
  {$ENDIF}
   if length(s) = 0 then
     s := 'en';
-  lang := lowercase(s[1..2]);
+    lang := lowercase(s[1..2]);
   getlang := lang;
 end;
 
@@ -165,6 +166,7 @@ var
     ShGetFolderPath(0, CSIDL_PROFILE, 0, SHGFP_TYPE_CURRENT, buffer);
     Result := string(PChar(@buffer));
   end;
+
 {$ENDIF}
 
 begin

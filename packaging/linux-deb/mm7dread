@@ -1,0 +1,2 @@
+?package(mm5dread):needs="X11" section="Applications/Network/Monitoring"\
+  title="MM5DRead" command="mm5dread"

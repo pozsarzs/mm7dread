@@ -133,6 +133,7 @@ begin
     Button5.Enabled := False;
     Button6.Enabled := False;
     Button7.Enabled := False;
+    Button8.Enabled := False;
   end
   else
   begin
@@ -145,6 +146,7 @@ begin
     Button5.Enabled := True;
     Button6.Enabled := True;
     Button7.Enabled := True;
+    Button8.Enabled := True;
   end;
 end;
 
@@ -160,6 +162,31 @@ begin
   end
   else
     Result := 2;
+end;
+
+procedure turnonoffleds(cmd: byte);
+var
+  good: boolean;
+begin
+  case checkcompatibility(CNTNAME, CNTVER) of
+    0: Form1.StatusBar1.Panels.Items[0].Text :=
+        Value.Strings[0] + ' ' + Value.Strings[1];
+    1:
+    begin
+      ShowMessage(MESSAGE04);
+      Form1.StatusBar1.Panels.Items[0].Text := '';
+      exit;
+    end;
+    2: Form1.StatusBar1.Panels.Items[0].Text := '';
+  end;
+  good := getdatafromdevice(Form1.ComboBox1.Text, cmd, Form1.Edit1.Text);
+  if good then
+    if Value.Count <> 1 then
+      good := False
+    else
+      good := True;
+  if not good then
+    ShowMessage(MESSAGE03);
 end;
 
 // refresh displays
@@ -224,43 +251,43 @@ end;
 // turn off green LED
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-
+  turnonoffleds(3);
 end;
 
 // turn on green LED
 procedure TForm1.Button2Click(Sender: TObject);
 begin
-
+  turnonoffleds(4);
 end;
 
 // turn off yellow LED
 procedure TForm1.Button4Click(Sender: TObject);
 begin
-
+  turnonoffleds(5);
 end;
 
 // turn on yellow LED
 procedure TForm1.Button3Click(Sender: TObject);
 begin
-
+  turnonoffleds(6);
 end;
 
 // turn off red LED
 procedure TForm1.Button5Click(Sender: TObject);
 begin
-
+  turnonoffleds(7);
 end;
 
 // turn on red LED
 procedure TForm1.Button6Click(Sender: TObject);
 begin
-
+  turnonoffleds(8);
 end;
 
 // turn off all LEDs
 procedure TForm1.Button8Click(Sender: TObject);
 begin
-
+  turnonoffleds(2);
 end;
 
 // events of Form1
