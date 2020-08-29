@@ -21,7 +21,7 @@ uses
   Classes, Dialogs, INIFiles, SysUtils, {$IFDEF WIN32}Windows,{$ENDIF} httpsend;
 
 var
-  value0, value1, value2, value3: TStringList;
+  value: TStringList;
   green, yellow, red: boolean;
   exepath: shortstring;
   lang: string[2];
@@ -69,10 +69,10 @@ const
                                  'set/redled/on');
 begin
   getdatafromdevice := True;
-  value0.Clear;
+  value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' +cmdstr[cmd] + '?uid=' + uid, value0) then
+    if not HttpGetText(url + '/' +cmdstr[cmd] + '?uid=' + uid, value) then
       getdatafromdevice := False;
     Free;
   end;

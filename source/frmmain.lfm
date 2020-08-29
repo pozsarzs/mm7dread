@@ -83,7 +83,6 @@ object Form1: TForm1
   }
   OnClose = FormClose
   OnCreate = FormCreate
-  OnResize = FormResize
   Position = poDefaultPosOnly
   LCLVersion = '1.6.2.0'
   object Shape2: TShape
@@ -449,6 +448,7 @@ object Form1: TForm1
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Top = 4
     Caption = 'Refresh displays'
+    Enabled = False
     OnClick = Button7Click
     TabOrder = 3
   end
@@ -476,6 +476,7 @@ object Form1: TForm1
       Top = 32
       Width = 75
       Caption = 'Green off'
+      Enabled = False
       OnClick = Button1Click
       TabOrder = 0
     end
@@ -489,6 +490,7 @@ object Form1: TForm1
       Width = 75
       BorderSpacing.Top = 8
       Caption = 'Yellow off'
+      Enabled = False
       OnClick = Button4Click
       TabOrder = 1
     end
@@ -502,6 +504,7 @@ object Form1: TForm1
       Width = 75
       BorderSpacing.Top = 8
       Caption = 'Red off'
+      Enabled = False
       OnClick = Button5Click
       TabOrder = 2
     end
@@ -515,6 +518,7 @@ object Form1: TForm1
       Width = 75
       BorderSpacing.Left = 4
       Caption = 'Yellow on'
+      Enabled = False
       OnClick = Button3Click
       TabOrder = 3
     end
@@ -528,6 +532,7 @@ object Form1: TForm1
       Width = 75
       BorderSpacing.Left = 4
       Caption = 'Green on'
+      Enabled = False
       OnClick = Button2Click
       TabOrder = 4
     end
@@ -541,6 +546,7 @@ object Form1: TForm1
       Width = 75
       BorderSpacing.Left = 4
       Caption = 'Red on'
+      Enabled = False
       OnClick = Button6Click
       TabOrder = 5
     end
@@ -557,6 +563,7 @@ object Form1: TForm1
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 8
       Caption = 'All off'
+      Enabled = False
       OnClick = Button8Click
       TabOrder = 6
     end
