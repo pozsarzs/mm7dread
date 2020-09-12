@@ -1,0 +1,2 @@
+?package(mm7dread):needs="X11" section="Applications/Network/Monitoring"\
+  title="MM7DRead" command="mm7dread"
