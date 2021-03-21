@@ -19,26 +19,17 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls, ValEdit, untcommonproc;
+  StdCtrls, Buttons, ExtCtrls, ValEdit, StrUtils, untcommonproc;
 
 type
   { TForm1 }
   TForm1 = class(TForm)
-    Bevel1: TBevel;
     Bevel16: TBevel;
     Bevel2: TBevel;
     Bevel3: TBevel;
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    Button6: TButton;
     Button7: TButton;
-    Button8: TButton;
     ComboBox1: TComboBox;
     Edit1: TEdit;
-    GroupBox1: TGroupBox;
     Label1: TLabel;
     Label17: TLabel;
     Label18: TLabel;
@@ -54,17 +45,12 @@ type
     StatusBar1: TStatusBar;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
-    procedure Button5Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
+    ValueListEditor1: TValueListEditor;
     procedure Button7Click(Sender: TObject);
-    procedure Button8Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton3Click(Sender: TObject);
   private
@@ -79,13 +65,29 @@ var
 
 const
   CNTNAME = 'MM7D';
-  CNTVER = '0.1';
+  CNTVER = '0.3';
 
 resourcestring
   MESSAGE01 = 'Cannot read configuration file!';
   MESSAGE02 = 'Cannot write configuration file!';
   MESSAGE03 = 'Cannot read data from this URL!';
   MESSAGE04 = 'Not compatible controller!';
+  MESSAGE05 = 'name';
+  MESSAGE06 = 'value';
+  MESSAGE07 = 'IP address:';
+  MESSAGE08 = 'MAC address:';
+  MESSAGE09 = 'Serial number:';
+  MESSAGE10 = 'Sw. version:';
+  MESSAGE11 = 'Mode:';
+  MESSAGE12 = 'Temp. limits:';
+  MESSAGE13 = 'RH limits:';
+  MESSAGE14 = 'RGL limit:';
+  MESSAGE15 = 'T:';
+  MESSAGE16 = 'RH:';
+  MESSAGE17 = 'RGL:';
+  MESSAGE18 = 'G LED:';
+  MESSAGE19 = 'Y LED:';
+  MESSAGE20 = 'R LED:';
 
 implementation
 
@@ -129,27 +131,13 @@ begin
   begin
     SpeedButton2.Enabled := False;
     SpeedButton3.Enabled := False;
-    Button1.Enabled := False;
-    Button2.Enabled := False;
-    Button3.Enabled := False;
-    Button4.Enabled := False;
-    Button5.Enabled := False;
-    Button6.Enabled := False;
     Button7.Enabled := False;
-    Button8.Enabled := False;
   end
   else
   begin
     SpeedButton2.Enabled := True;
     SpeedButton3.Enabled := True;
-    Button1.Enabled := True;
-    Button2.Enabled := True;
-    Button3.Enabled := True;
-    Button4.Enabled := True;
-    Button5.Enabled := True;
-    Button6.Enabled := True;
     Button7.Enabled := True;
-    Button8.Enabled := True;
   end;
 end;
 
@@ -167,37 +155,27 @@ begin
     Result := 2;
 end;
 
-procedure turnonoffleds(cmd: byte);
-var
-  good: boolean;
-begin
-  case checkcompatibility(CNTNAME, CNTVER) of
-    0: Form1.StatusBar1.Panels.Items[0].Text :=
-        Value.Strings[0] + ' ' + Value.Strings[1];
-    1:
-    begin
-      ShowMessage(MESSAGE04);
-      Form1.StatusBar1.Panels.Items[0].Text := '';
-      exit;
-    end;
-    2: Form1.StatusBar1.Panels.Items[0].Text := '';
-  end;
-  good := getdatafromdevice(Form1.ComboBox1.Text, cmd, Form1.Edit1.Text);
-  if good then
-    if Value.Count <> 1 then
-      good := False
-    else
-      good := True;
-  if not good then
-    ShowMessage(MESSAGE03);
-end;
-
 // refresh displays
 procedure TForm1.Button7Click(Sender: TObject);
 var
   format: TFormatSettings;
   good: boolean;
   gc, t, rh: single;
+  b: byte;
+  i: integer;
+const
+  s1a: string='<br>';
+  s1b: string='<td>';
+  s1c: string='</td>';
+  s2: string='IP address:';
+  s3: string='MAC address:';
+  s4: string='Hardware serial number:';
+  s5: string='Software version:';
+  s6: string='<td>Mode:</td>';
+  s7: string='<td>Temperature limit values:</td>';
+  s8: string='<td>Humidity limit values:</td>';
+  s9: string='<td>Gas level limit value:</td>';
+
 begin
   case checkcompatibility(CNTNAME, CNTVER) of
     0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' ' + Value.Strings[1];
@@ -211,6 +189,89 @@ begin
   end;
   good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
   if good then
+  begin
+    // get IP address
+    for i:=0 to Value.Count-1 do
+      if findpart(s2,Value.Strings[i])<>0 then break;
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s1a,'',[rfReplaceAll]);
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s2,'',[rfReplaceAll]);
+    Value.Strings[i]:=rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1,1]:= Value.Strings[i];
+    // get MAC address
+    for i:=0 to Value.Count-1 do
+      if findpart(s3,Value.Strings[i])<>0 then break;
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s1a,'',[rfReplaceAll]);
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s3,'',[rfReplaceAll]);
+    Value.Strings[i]:=rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1,2]:= Value.Strings[i];
+    // get serial number
+    for i:=0 to Value.Count-1 do
+      if findpart(s4,Value.Strings[i])<>0 then break;
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s1a,'',[rfReplaceAll]);
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s4,'',[rfReplaceAll]);
+    Value.Strings[i]:=rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1,3]:= Value.Strings[i];
+    // get software version
+    for i:=0 to Value.Count-1 do
+      if findpart(s5,Value.Strings[i])<>0 then break;
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s1a,'',[rfReplaceAll]);
+    Value.Strings[i]:=stringreplace(Value.Strings[i],s5,'',[rfReplaceAll]);
+    Value.Strings[i]:=rmchr1(Value.Strings[i]);
+    ValueListEditor1.Cells[1,4]:= Value.Strings[i];
+    // get operation mode
+    for i:=0 to Value.Count-1 do
+      if findpart(s6,Value.Strings[i])<>0 then break;
+    Value.Strings[i+1]:=rmchr1(Value.Strings[i+1]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1b,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1c,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=rmchr1(Value.Strings[i+1]);
+    ValueListEditor1.Cells[1,5]:= Value.Strings[i+1];
+    // get temperature limits
+    for i:=0 to Value.Count-1 do
+      if findpart(s7,Value.Strings[i])<>0 then break;
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],'&deg;','°',[rfReplaceAll]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1b,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1c,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=rmchr3(Value.Strings[i+1]);
+    ValueListEditor1.Cells[1,6]:= Value.Strings[i+1];
+    // get humidity limits
+    for i:=0 to Value.Count-1 do
+      if findpart(s8,Value.Strings[i])<>0 then break;
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],'&nbsp;','',[rfReplaceAll]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1b,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1c,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=rmchr3(Value.Strings[i+1]);
+    ValueListEditor1.Cells[1,7]:= Value.Strings[i+1];
+    // get gas level limit
+    for i:=0 to Value.Count-1 do
+      if findpart(s9,Value.Strings[i])<>0 then break;
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1b,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=stringreplace(Value.Strings[i+1],s1c,'',[rfReplaceAll]);
+    Value.Strings[i+1]:=rmchr3(Value.Strings[i+1]);
+    ValueListEditor1.Cells[1,8]:= Value.Strings[i+1];
+
+
+
+
+{
+<td>Temperature:</td>
+<td>16 &deg;C</td>
+<td>Relative humidity:</td>
+<td>40%</td>
+<td>Relative gas level:</td>
+<td>0%</td>
+<td>Green:</td>
+<td>OFF        </td>
+<td>Yellow:</td>
+<td>OFF        </td>
+<td>Red:</td>
+<td>OFF        </td>
+}
+
+
+    ValueListEditor1.AutoSizeColumns;
+  end;
+  {  if good then
     if Value.Count <> 3 then
       good := False
     else
@@ -248,49 +309,7 @@ begin
       Label18.Caption := floattostr(gc) + ' %'
     else
       Label18.Caption := '0 %';
-  end;
-end;
-
-// turn off green LED
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  turnonoffleds(3);
-end;
-
-// turn on green LED
-procedure TForm1.Button2Click(Sender: TObject);
-begin
-  turnonoffleds(4);
-end;
-
-// turn off yellow LED
-procedure TForm1.Button4Click(Sender: TObject);
-begin
-  turnonoffleds(5);
-end;
-
-// turn on yellow LED
-procedure TForm1.Button3Click(Sender: TObject);
-begin
-  turnonoffleds(6);
-end;
-
-// turn off red LED
-procedure TForm1.Button5Click(Sender: TObject);
-begin
-  turnonoffleds(7);
-end;
-
-// turn on red LED
-procedure TForm1.Button6Click(Sender: TObject);
-begin
-  turnonoffleds(8);
-end;
-
-// turn off all LEDs
-procedure TForm1.Button8Click(Sender: TObject);
-begin
-  turnonoffleds(2);
+  end;}
 end;
 
 // events of Form1
@@ -311,7 +330,29 @@ begin
   for b := 0 to 63 do
     if length(urls[b]) > 0 then
       ComboBox1.Items.Add(untcommonproc.urls[b]);
+  // others
   untcommonproc.Value := TStringList.Create;
+  ValueListEditor1.Cells[0,0]:= MESSAGE05;
+  ValueListEditor1.Cells[1,0]:= MESSAGE06;
+  ValueListEditor1.Cells[0,1]:= MESSAGE07;
+  ValueListEditor1.Cells[0,2]:= MESSAGE08;
+  ValueListEditor1.Cells[0,3]:= MESSAGE09;
+  ValueListEditor1.Cells[0,4]:= MESSAGE10;
+  ValueListEditor1.Cells[0,5]:= MESSAGE11;
+  ValueListEditor1.Cells[0,6]:= MESSAGE12;
+  ValueListEditor1.Cells[0,7]:= MESSAGE13;
+  ValueListEditor1.Cells[0,8]:= MESSAGE14;
+  ValueListEditor1.Cells[0,9]:= MESSAGE15;
+  ValueListEditor1.Cells[0,10]:= MESSAGE16;
+  ValueListEditor1.Cells[0,11]:= MESSAGE17;
+  ValueListEditor1.Cells[0,12]:= MESSAGE18;
+  ValueListEditor1.Cells[0,13]:= MESSAGE19;
+  ValueListEditor1.Cells[0,14]:= MESSAGE20;
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);

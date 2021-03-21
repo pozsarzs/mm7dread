@@ -41,6 +41,8 @@ const
   {$I config.pas.in}
 {$ENDIF}
 
+function rmchr1(input: string): string;
+function rmchr3(input: string): string;
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 function getexepath: string;
 function getlang: string;
@@ -56,25 +58,34 @@ function SHGetFolderPath(hwndOwner: HWND; nFolder: integer; hToken: THandle;
 
 implementation
 
+// Remove all space and tabulator
+function rmchr1(input: string): string;
+var
+  b: byte;
+begin
+  rmchr1 := '';
+  for b:=1 to length(input) do
+    if (input[b]<> #32) and (input[b]<> #9) then rmchr1 := rmchr1+input[b];
+end;
+
+// Remove space and tabulator from start of line
+function rmchr3(input: string): string;
+begin
+  rmchr3 := '';
+  while (input[1]=#9) or (input[1]=#32) do delete(input,1,1);
+  rmchr3 := input;
+end;
+
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 const
-  cmdstr: array[0..8] of string = ('version',
-    'get/all',
-    'set/all/off',
-    'set/greenled/off',
-    'set/greenled/on',
-    'set/yellowled/off',
-    'set/yellowled/on',
-    'set/redled/off',
-    'set/redled/on');
+  cmdstr: array[0..1] of string = ('version','summary');
 begin
   getdatafromdevice := True;
   Value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then
-      getdatafromdevice := False;
+    if not HttpGetText(url + '/' + cmdstr[cmd] +'?uid=' + uid, Value) then getdatafromdevice := False;
     Free;
   end;
 end;
