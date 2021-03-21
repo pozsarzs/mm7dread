@@ -1,6 +1,6 @@
 '+-----------------------------------------------------------------------------+
-'| MM7DRead v0.1 * Status reader program for MM5D device                       |
-'| Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>             |
+'| MM7DRead v0.2 * Status reader program for MM7D device                       |
+'| Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>        |
 '| mkshortcut.vbs                                                              |
 '| Make shortcut                                                               |
 '+-----------------------------------------------------------------------------+

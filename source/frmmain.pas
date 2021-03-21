@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM7DRead v0.1 * Status reader program for MM7D device                    | }
-{ | Copyright (C) 2020 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>          | }
+{ | MM7DRead v0.2 * Status reader program for MM7D device                    | }
+{ | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
@@ -19,7 +19,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls, untcommonproc;
+  StdCtrls, Buttons, ExtCtrls, ValEdit, untcommonproc;
 
 type
   { TForm1 }
@@ -45,12 +45,15 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    PageControl1: TPageControl;
     Shape1: TShape;
     Shape15: TShape;
     Shape2: TShape;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
