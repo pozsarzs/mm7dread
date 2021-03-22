@@ -17,40 +17,84 @@ msgstr ""
 msgid "Not compatible controller!"
 msgstr ""
 
-#: tform1.button1.caption
-msgid "Green off"
+#: frmmain.message05
+msgid "name"
 msgstr ""
 
-#: tform1.button2.caption
-msgid "Green on"
+#: frmmain.message06
+msgid "value"
 msgstr ""
 
-#: tform1.button3.caption
-msgid "Yellow on"
+#: frmmain.message07
+msgid "IP address:"
 msgstr ""
 
-#: tform1.button4.caption
-msgid "Yellow off"
+#: frmmain.message08
+msgid "MAC address:"
 msgstr ""
 
-#: tform1.button5.caption
-msgid "Red off"
+#: frmmain.message09
+msgid "Serial number:"
 msgstr ""
 
-#: tform1.button6.caption
-msgid "Red on"
+#: frmmain.message10
+msgid "Sw. version:"
+msgstr ""
+
+#: frmmain.message11
+msgid "Mode:"
+msgstr ""
+
+#: frmmain.message12
+msgid "T limits:"
+msgstr ""
+
+#: frmmain.message13
+msgid "RH limits:"
+msgstr ""
+
+#: frmmain.message14
+msgid "RGL limit:"
+msgstr ""
+
+#: frmmain.message15
+msgid "T:"
+msgstr ""
+
+#: frmmain.message16
+msgid "RH:"
+msgstr ""
+
+#: frmmain.message17
+msgid "RGL:"
+msgstr ""
+
+#: frmmain.message18
+msgid "G LED:"
+msgstr ""
+
+#: frmmain.message19
+msgid "Y LED:"
+msgstr ""
+
+#: frmmain.message20
+msgid "R LED:"
 msgstr ""
 
 #: tform1.button7.caption
-msgid "Refresh displays"
+msgid "&Refresh displays"
 msgstr ""
 
-#: tform1.button8.caption
-msgid "All off"
+#: tform1.caption
+msgid "Form1"
 msgstr ""
 
-#: tform1.groupbox1.caption
-msgid "Status LEDs"
+#: tform1.combobox1.hint
+msgid "URL"
+msgstr ""
+
+#: tform1.edit1.hint
+msgid "UID"
 msgstr ""
 
 #: tform1.label1.caption
@@ -61,8 +105,26 @@ msgstr ""
 msgid "Relative gas concentrate"
 msgstr ""
 
+#: tform1.label18.caption
+msgctxt "TFORM1.LABEL18.CAPTION"
+msgid "0 %"
+msgstr ""
+
 #: tform1.label2.caption
 msgid "Relative humidity"
+msgstr ""
+
+#: tform1.label3.caption
+msgid "0 °C"
+msgstr ""
+
+#: tform1.label4.caption
+msgctxt "tform1.label4.caption"
+msgid "0 %"
+msgstr ""
+
+#: tform1.label5.caption
+msgid "Status"
 msgstr ""
 
 #: tform1.speedbutton2.hint
@@ -71,5 +133,17 @@ msgstr ""
 
 #: tform1.speedbutton3.hint
 msgid "Remove URL from list"
+msgstr ""
+
+#: tform1.tabsheet1.caption
+msgid "Measured values"
+msgstr ""
+
+#: tform1.tabsheet2.caption
+msgid "Summary"
+msgstr ""
+
+#: tform1.tabsheet3.caption
+msgid "System log"
 msgstr ""
 

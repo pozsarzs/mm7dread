@@ -79,7 +79,7 @@ end;
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
 const
-  cmdstr: array[0..1] of string = ('version','summary');
+  cmdstr: array[0..2] of string = ('version','summary','log');
 begin
   getdatafromdevice := True;
   Value.Clear;
