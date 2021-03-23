@@ -70,8 +70,8 @@ msgid "R LED:"
 msgstr "Piros LED:"
 
 #: tform1.button7.caption
-msgid "Refresh displays"
-msgstr "Kijelző frissítés"
+msgid "&Refresh displays"
+msgstr "Kijelzők f&rissítése"
 
 #: tform1.groupbox1.caption
 msgid "Status LEDs"
