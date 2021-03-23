@@ -342,24 +342,24 @@ begin
     Label4.Caption := ValueListEditor1.Cells[1, 10];
     Label18.Caption := ValueListEditor1.Cells[1, 11];
     if ValueListEditor1.Cells[1, 12] = 'ON' then
-      Shape4.Brush.Color := clGreen
+      Shape4.Brush.Color := clLime
     else
-      Shape4.Brush.Color := $003800;
+      Shape4.Brush.Color := clGreen;
     if ValueListEditor1.Cells[1, 13] = 'ON' then
       Shape8.Brush.Color := clYellow
     else
-      Shape8.Brush.Color := $404000;
+      Shape8.Brush.Color := clOlive;
     if ValueListEditor1.Cells[1, 14] = 'ON' then
       Shape5.Brush.Color := clRed
     else
-      Shape5.Brush.Color := $640000;
+      Shape5.Brush.Color := clMaroon;
   end
   else
   begin
     Memo1.Clear;
-    Shape4.Brush.Color := $003800;
-    Shape8.Brush.Color := $404000;
-    Shape5.Brush.Color := $640000;
+    Shape4.Brush.Color := clGreen;
+    Shape8.Brush.Color := clOlive;
+    Shape5.Brush.Color := clMaroon;
     Label3.Caption := '0 °C';
     Label4.Caption := '0 %';
     Label18.Caption := '0 %';

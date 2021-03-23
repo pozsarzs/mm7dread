@@ -262,13 +262,13 @@ object Form1: TForm1
     Height = 229
     Top = 68
     Width = 304
-    ActivePage = TabSheet3
+    ActivePage = TabSheet1
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
     BorderSpacing.Bottom = 4
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Measured values'
@@ -464,7 +464,7 @@ object Form1: TForm1
         Height = 25
         Top = 56
         Width = 20
-        Brush.Color = 14336
+        Brush.Color = clGreen
         ParentShowHint = False
         Shape = stCircle
       end
@@ -474,7 +474,7 @@ object Form1: TForm1
         Height = 25
         Top = 121
         Width = 20
-        Brush.Color = 100
+        Brush.Color = clMaroon
         ParentShowHint = False
         Shape = stCircle
       end
@@ -489,7 +489,7 @@ object Form1: TForm1
         Height = 25
         Top = 89
         Width = 20
-        Brush.Color = 16448
+        Brush.Color = clOlive
         ParentShowHint = False
         Shape = stCircle
       end
@@ -521,10 +521,9 @@ object Form1: TForm1
         BorderSpacing.Around = 4
         FixedCols = 0
         RowCount = 14
-        ScrollBars = ssBoth
         TabOrder = 0
         DisplayOptions = [doColumnTitles, doAutoColResize]
-        Options = [goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goAlwaysShowEditor, goThumbTracking, goColSpanning, goDblClickAutoSize]
+        Options = [goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking, goColSpanning, goDblClickAutoSize, goSelectionActive]
         Strings.Strings = (
           ''
           ''
@@ -541,8 +540,8 @@ object Form1: TForm1
           ''
         )
         ColWidths = (
-          143
-          143
+          135
+          135
         )
       end
     end
