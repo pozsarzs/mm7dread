@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 383
+  Left = 563
   Height = 360
-  Top = 201
+  Top = 181
   Width = 312
   Caption = 'Form1'
   ClientHeight = 360
@@ -84,7 +84,7 @@ object Form1: TForm1
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDefaultPosOnly
-  LCLVersion = '1.6.2.0'
+  LCLVersion = '1.8.2.0'
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -109,8 +109,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 19
-    Top = 341
+    Height = 21
+    Top = 339
     Width = 312
     Panels = <    
       item
@@ -241,7 +241,7 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = SpeedButton2
     Left = 4
-    Height = 25
+    Height = 27
     Hint = 'UID'
     Top = 35
     Width = 250
@@ -259,20 +259,20 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Button7
     Left = 4
-    Height = 229
+    Height = 227
     Top = 68
     Width = 304
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
     BorderSpacing.Bottom = 4
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Measured values'
-      ClientHeight = 196
+      ClientHeight = 192
       ClientWidth = 298
       object Shape2: TShape
         AnchorSideLeft.Control = Bevel3
@@ -332,9 +332,9 @@ object Form1: TForm1
         AnchorSideTop.Control = Bevel2
         AnchorSideBottom.Side = asrBottom
         Left = 8
-        Height = 15
+        Height = 17
         Top = 8
-        Width = 82
+        Width = 73
         BorderSpacing.Around = 4
         Caption = 'Temperature'
         Font.Color = clAqua
@@ -345,9 +345,9 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel3
         AnchorSideTop.Control = Bevel3
         Left = 8
-        Height = 15
+        Height = 17
         Top = 73
-        Width = 115
+        Width = 95
         BorderSpacing.Around = 4
         Caption = 'Relative humidity'
         Font.Color = clAqua
@@ -358,10 +358,10 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel2
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = Bevel2
-        Left = 81
-        Height = 24
+        Left = 85
+        Height = 28
         Top = 27
-        Width = 46
+        Width = 38
         BorderSpacing.Top = 23
         Caption = '0 °C'
         Font.Color = clAqua
@@ -374,10 +374,10 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel3
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = Bevel3
-        Left = 84
-        Height = 24
+        Left = 87
+        Height = 28
         Top = 92
-        Width = 41
+        Width = 34
         BorderSpacing.Top = 23
         Caption = '0 %'
         Font.Color = clAqua
@@ -418,9 +418,9 @@ object Form1: TForm1
         AnchorSideTop.Control = Bevel16
         AnchorSideBottom.Side = asrBottom
         Left = 8
-        Height = 15
+        Height = 17
         Top = 138
-        Width = 161
+        Width = 137
         BorderSpacing.Around = 4
         Caption = 'Relative gas concentrate'
         Font.Color = clAqua
@@ -431,10 +431,10 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel16
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = Bevel16
-        Left = 84
-        Height = 24
+        Left = 87
+        Height = 28
         Top = 157
-        Width = 41
+        Width = 34
         BorderSpacing.Top = 23
         Caption = '0 %'
         Font.Color = clAqua
@@ -495,16 +495,16 @@ object Form1: TForm1
       end
       object Label5: TLabel
         Left = 231
-        Height = 15
+        Height = 17
         Top = 16
-        Width = 41
+        Width = 35
         Caption = 'Status'
         ParentColor = False
       end
     end
     object TabSheet2: TTabSheet
       Caption = 'Summary'
-      ClientHeight = 196
+      ClientHeight = 192
       ClientWidth = 298
       object ValueListEditor1: TValueListEditor
         AnchorSideLeft.Control = TabSheet2
@@ -514,7 +514,7 @@ object Form1: TForm1
         AnchorSideBottom.Control = TabSheet2
         AnchorSideBottom.Side = asrBottom
         Left = 4
-        Height = 188
+        Height = 184
         Top = 4
         Width = 290
         Anchors = [akTop, akLeft, akRight, akBottom]
@@ -540,14 +540,14 @@ object Form1: TForm1
           ''
         )
         ColWidths = (
-          135
-          135
+          136
+          137
         )
       end
     end
     object TabSheet3: TTabSheet
       Caption = 'System log'
-      ClientHeight = 196
+      ClientHeight = 192
       ClientWidth = 298
       object Memo1: TMemo
         AnchorSideLeft.Control = TabSheet3
@@ -557,7 +557,7 @@ object Form1: TForm1
         AnchorSideBottom.Control = TabSheet3
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 196
+        Height = 192
         Top = 0
         Width = 298
         Anchors = [akTop, akLeft, akRight, akBottom]
@@ -566,6 +566,67 @@ object Form1: TForm1
         ScrollBars = ssAutoBoth
         TabOrder = 0
         WordWrap = False
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'About'
+      ClientHeight = 192
+      ClientWidth = 298
+      object Bevel4: TBevel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideTop.Control = TabSheet4
+        AnchorSideRight.Control = TabSheet4
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet4
+        AnchorSideBottom.Side = asrBottom
+        Left = 4
+        Height = 184
+        Top = 4
+        Width = 290
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 4
+      end
+      object Label6: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Left = 129
+        Height = 17
+        Top = 32
+        Width = 40
+        Caption = 'Label6'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label7: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Left = 36
+        Height = 17
+        Top = 56
+        Width = 227
+        Caption = 'Status reader program for MM7D device'
+        ParentColor = False
+      end
+      object Label8: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Left = 76
+        Height = 17
+        Top = 72
+        Width = 147
+        Caption = '(C)2020-2022 Pozsár Zsolt'
+        ParentColor = False
+      end
+      object Label9: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Left = 22
+        Height = 17
+        Top = 152
+        Width = 254
+        Caption = 'Web: http://www.szerafingomba.hu/softwares'
+        ParentColor = False
       end
     end
   end
@@ -578,7 +639,7 @@ object Form1: TForm1
     AnchorSideBottom.Control = StatusBar1
     Left = 4
     Height = 36
-    Top = 301
+    Top = 299
     Width = 304
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Around = 4

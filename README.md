@@ -1,5 +1,5 @@
 **MM7DRead * Status reader program for MM7D device**  
-Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>  
+Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>  
 Homepage: <http://www.szerafingomba.hu/softwares/>  
 GitHub: <https://github.com/pozsarzs/mm7dread>
 
@@ -7,7 +7,7 @@ GitHub: <https://github.com/pozsarzs/mm7dread>
 
  - architecture:       amd64, armhf, i386
  - operation system:   Linux, Windows
- - version:            v0.2
+ - version:            v0.3
  - language:           en
  - licence:            EUPL v1.1
  - user interface:     GUI

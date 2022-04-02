@@ -12,16 +12,16 @@ a. Visit homepage (see later) to download installer packages:
 
   architecture  operation system        filename
   ---------------------------------------------------------------
-  (all)         (source code)           mm7dread-0.2.tar.gz
-  armhf         Linux                   mm7dread-0.2-armhf.bin
-  armhf         Linux                   mm7dread-0.2-armhf.tar.gz
-  armhf         Raspbian OS             mm7dread_0.2-1_armhf.deb
-  i386          Debian GNU/Linux        mm7dread_0.2-1_i386.deb
-  i586          Linux                   mm7dread-0.2-i586.bin
-  i586          Linux                   mm7dread-0.2-i586.tar.gz
-  i586          Windows 32 bit          mm7dread-0.2-win32.exe
-  i586          Windows 32 bit          mm7dread-0.2-win32.msi
-  i586          Windows 32 bit          mm7dread-0.2-win32.zip
+  (all)         (source code)           mm7dread-0.3.tar.gz
+  armhf         Linux                   mm7dread-0.3-armhf.bin
+  armhf         Linux                   mm7dread-0.3-armhf.tar.gz
+  armhf         Raspbian OS             mm7dread_0.3-1_armhf.deb
+  i386          Debian GNU/Linux        mm7dread_0.3-1_i386.deb
+  i586          Linux                   mm7dread-0.3-i586.bin
+  i586          Linux                   mm7dread-0.3-i586.tar.gz
+  i586          Windows 32 bit          mm7dread-0.3-win32.exe
+  i586          Windows 32 bit          mm7dread-0.3-win32.msi
+  i586          Windows 32 bit          mm7dread-0.3-win32.zip
 
 b. Download from Github
 
@@ -41,10 +41,7 @@ c. Download from Debian repository
 ~~~~~~~~~~
 
    Homepage:             <http://www.szerafingomba.hu/softwares/>
-   Author:               Pozsar Zsolt
-   Tax ID:               60407850-1-36
-   Registration num.:    20703695
-
+   Author:               Pozsár Zsolt
    E-mail:               <pozsar.zsolt@szerafingomba.hu>
    Phone:                +36 56/470-272
    Mobile:               +36 30/249-5030
@@ -54,4 +51,4 @@ c. Download from Debian repository
                          Hungary
 
 ---------------------------------------------------------------------------------
- MM7DRead * Copyright (C) 2020-2021 Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
+ MM7DRead * Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>

@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM7DRead v0.2 * Status reader program for MM7D device                    | }
-{ | Copyright (C) 2020-2021 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM7DRead v0.3 * Status reader program for MM7D device                    | }
+{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
 { | frmmain.pas                                                              | }
 { | Main form                                                                | }
 { +--------------------------------------------------------------------------+ }
@@ -28,6 +28,7 @@ type
     Bevel16: TBevel;
     Bevel2: TBevel;
     Bevel3: TBevel;
+    Bevel4: TBevel;
     Button7: TButton;
     ComboBox1: TComboBox;
     Edit1: TEdit;
@@ -38,6 +39,10 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
     Memo1: TMemo;
     PageControl1: TPageControl;
     Shape1: TShape;
@@ -52,6 +57,7 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
     ValueListEditor1: TValueListEditor;
     procedure Button7Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);
@@ -94,6 +100,8 @@ resourcestring
   MESSAGE18 = 'G LED:';
   MESSAGE19 = 'Y LED:';
   MESSAGE20 = 'R LED:';
+  MESSAGE21 = 'Your IP address is not allowed!';
+  MESSAGE22 = 'Authentication error!';
 
 implementation
 
@@ -189,8 +197,18 @@ const
   s15: string = '<td>Red:</td>';
 
 begin
+  // clear pages
+  Label3.Caption := '0 °C';
+  Label4.Caption := '0 %';
+  Label18.Caption := '0 %';
+  Shape4.Brush.Color := clGreen;
+  Shape8.Brush.Color := clOlive;
+  Shape5.Brush.Color := clMaroon;
+  ValueListEditor1.Cols[1].Clear;
+  Memo1.Clear;
+  // check compatibility
   case checkcompatibility(CNTNAME, CNTVER) of
-    0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' ' + Value.Strings[1];
+    0: StatusBar1.Panels.Items[0].Text := Value.Strings[0] + ' v' + Value.Strings[1];
     1:
     begin
       ShowMessage(MESSAGE04);
@@ -199,31 +217,23 @@ begin
     end;
     2: StatusBar1.Panels.Items[0].Text := '';
   end;
-  // get log
-  good := getdatafromdevice(ComboBox1.Text, 2, Edit1.Text);
-  if good then
+  // get values
+  if getdatafromdevice(ComboBox1.Text, 1, Edit1.Text) then
   begin
-    // write log
-    Memo1.Clear;
-    for i := 0 to Value.Count - 1 do
-      if findpart('<tr><td><pre>', Value.Strings[i]) <> 0 then
-      begin
-        Value.Strings[i] := rmchr3(Value.Strings[i]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td><pre>',
-          '', [rfReplaceAll]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td><td><pre>',
-          #9, [rfReplaceAll]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td></tr>',
-          '', [rfReplaceAll]);
-        Memo1.Lines.Insert(0, Value.Strings[i]);
-      end;
-    Memo1.SelStart := 0;
-    // get values
-    good := getdatafromdevice(ComboBox1.Text, 1, Edit1.Text);
     // get IP address
     for i := 0 to Value.Count - 1 do
       if findpart(s2, Value.Strings[i]) <> 0 then
         break;
+    if Value.Strings[i] = 'Not allowed client IP address!' then
+    begin
+      ShowMessage(MESSAGE21);
+      exit;
+    end;
+    if Value.Strings[i] = 'Authentication error!' then
+    begin
+      ShowMessage(MESSAGE22);
+      exit;
+    end;
     Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
     Value.Strings[i] := stringreplace(Value.Strings[i], s2, '', [rfReplaceAll]);
     Value.Strings[i] := rmchr1(Value.Strings[i]);
@@ -265,7 +275,8 @@ begin
     for i := 0 to Value.Count - 1 do
       if findpart(s7, Value.Strings[i]) <> 0 then
         break;
-    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;', '°', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;',
+      '°', [rfReplaceAll]);
     Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
     Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
     Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
@@ -274,7 +285,8 @@ begin
     for i := 0 to Value.Count - 1 do
       if findpart(s8, Value.Strings[i]) <> 0 then
         break;
-    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&nbsp;', '', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&nbsp;',
+      '', [rfReplaceAll]);
     Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
     Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
     Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
@@ -291,7 +303,8 @@ begin
     for i := 0 to Value.Count - 1 do
       if findpart(s10, Value.Strings[i]) <> 0 then
         break;
-    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;', '°', [rfReplaceAll]);
+    Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;',
+      '°', [rfReplaceAll]);
     Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
     Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
     Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
@@ -356,15 +369,32 @@ begin
   end
   else
   begin
-    Memo1.Clear;
-    Shape4.Brush.Color := clGreen;
-    Shape8.Brush.Color := clOlive;
-    Shape5.Brush.Color := clMaroon;
-    Label3.Caption := '0 °C';
-    Label4.Caption := '0 %';
-    Label18.Caption := '0 %';
-    ValueListEditor1.Cols[1].Clear;
     ShowMessage(MESSAGE03);
+    exit;
+  end;
+  // get log
+  if getdatafromdevice(ComboBox1.Text, 2, Edit1.Text) then
+  begin
+    // write log
+    Memo1.Clear;
+    for i := 0 to Value.Count - 1 do
+      if findpart('<tr><td><pre>', Value.Strings[i]) <> 0 then
+      begin
+        Value.Strings[i] := rmchr3(Value.Strings[i]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td><pre>',
+          '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i],
+          '</pre></td><td><pre>', #9, [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td></tr>',
+          '', [rfReplaceAll]);
+        Memo1.Lines.Insert(0, Value.Strings[i]);
+      end;
+    Memo1.SelStart := 0;
+  end
+  else
+  begin
+    ShowMessage(MESSAGE03);
+    exit;
   end;
 end;
 
@@ -377,6 +407,7 @@ begin
   getlang;
   getexepath;
   Form1.Caption := APPNAME + ' v' + VERSION;
+  Label6.Caption := Form1.Caption;
   // load configuration
   inifile := untcommonproc.userdir + DIR_CONFIG + 'mm7dread.ini';
   if FileSearch('mm7dread.ini', untcommonproc.userdir + DIR_CONFIG) <> '' then
