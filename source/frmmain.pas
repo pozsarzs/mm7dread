@@ -172,10 +172,6 @@ end;
 // refresh displays
 procedure TForm1.Button7Click(Sender: TObject);
 var
-  format: TFormatSettings;
-  good: boolean;
-  gc, t, rh: single;
-  b: byte;
   i: integer;
 const
   s1a: string = '<br>';

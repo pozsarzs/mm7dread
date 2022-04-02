@@ -1,9 +1,9 @@
 Package: mm7dread
 Version: 0.3
 Section: misc
-Priority: extra
-Architecture: armhf
-Installed-Size: 5204 kB
-Maintainer: Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>
+Priority: optional
+Architecture: amd64
+Installed-Size: 5.8 MB
+Maintainer: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
 Depends: libc6, libglib2.0-0, libgtk2.0-0
 Description: Status reader program for MM7D device

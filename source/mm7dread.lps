@@ -7,6 +7,7 @@
       <Unit0>
         <Filename Value="mm7dread.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="2" Y="7"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
@@ -17,10 +18,8 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="86"/>
-        <CursorPos X="16" Y="198"/>
+        <CursorPos X="3" Y="7"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
