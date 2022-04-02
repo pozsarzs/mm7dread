@@ -4,6 +4,6 @@ Section: misc
 Priority: extra
 Architecture: armhf
 Installed-Size: 5204 kB
-Maintainer: Pozsar Zsolt <pozsar.zsolt@szerafingomba.hu>
+Maintainer: Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>
 Depends: libc6, libglib2.0-0, libgtk2.0-0
 Description: Status reader program for MM7D device
