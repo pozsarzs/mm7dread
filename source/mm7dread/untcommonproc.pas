@@ -1,12 +1,12 @@
 { +--------------------------------------------------------------------------+ }
-{ | MM7DRead v0.3 * Status reader program for MM7D device                    | }
-{ | Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>     | }
+{ | MM7DRead v0.4 * Status reader program for MM7D device                    | }
+{ | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                     | }
 { | untcommonproc.pas                                                        | }
 { | Common functions and procedures                                          | }
 { +--------------------------------------------------------------------------+ }
 
 //   This program is free software: you can redistribute it and/or modify it
-// under the terms of the European Union Public License 1.1 version.
+// under the terms of the European Union Public License 1.2 version.
 
 //   This program is distributed in the hope that it will be useful, but WITHOUT
 // ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -43,7 +43,7 @@ const
 
 function rmchr1(input: string): string;
 function rmchr3(input: string): string;
-function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
+function getdatafromdevice(url: string; cmd: byte): boolean;
 function getexepath: string;
 function getlang: string;
 function loadconfiguration(filename: string): boolean;
@@ -79,15 +79,15 @@ begin
 end;
 
 // get data from controller device via http
-function getdatafromdevice(url: string; cmd: byte; uid: string): boolean;
+function getdatafromdevice(url: string; cmd: byte): boolean;
 const
-  cmdstr: array[0..2] of string = ('version', 'summary', 'log');
+  cmdstr: array[0..1] of string = ('get/xml', 'log');
 begin
   getdatafromdevice := True;
   Value.Clear;
   with THTTPSend.Create do
   begin
-    if not HttpGetText(url + '/' + cmdstr[cmd] + '?uid=' + uid, Value) then
+    if not HttpGetText(url + '/' + cmdstr[cmd], Value) then
       getdatafromdevice := False;
     Free;
   end;
@@ -114,8 +114,6 @@ begin
  {$IFDEF UNIX}
   s := getenvironmentvariable('LANG');
  {$ENDIF}
- {$IFDEF ANDROID}
- {$ENDIF}
  {$IFDEF WIN32}
   size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
   getmem(buffer, size);
@@ -141,7 +139,6 @@ begin
   iif := TIniFile.Create(filename);
   loadconfiguration := True;
   try
-    uids := iif.ReadString('uids', '1', '');
     for b := 0 to 63 do
       urls[b] := iif.ReadString('urls', IntToStr(b + 1), '');
   except
@@ -159,7 +156,6 @@ begin
   iif := TIniFile.Create(filename);
   saveconfiguration := True;
   try
-    iif.WriteString('uids', '1', uids);
     for b := 0 to 63 do
       iif.WriteString('urls', IntToStr(b + 1), urls[b]);
   except
@@ -186,9 +182,6 @@ var
 begin
  {$IFDEF UNIX}
   userdir := getenvironmentvariable('HOME');
- {$ENDIF}
- {$IFDEF ANDROID}
-  userdir := '/data/data/hu.szerafingomba.mm7dread';
  {$ENDIF}
  {$IFDEF WIN32}
   userdir := getuserprofile;

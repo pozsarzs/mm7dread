@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "MM7DRead"
-!define PRODUCT_VERSION "0.3"
+!define PRODUCT_VERSION "0.4"
 !define PRODUCT_PUBLISHER "PozsÃ¡r Zsolt"
 !define PRODUCT_WEB_SITE "http://www.szerafingomba.hu/softwares/"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\mm7dread.exe"
@@ -49,7 +49,7 @@ LicenseLangString MUILicense ${LANG_HUNGARIAN} "mm7dread\LICENCE"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "mm7dread-0.3-win32.exe"
+OutFile "mm7dread-${PRODUCT_VERSION}-win32.exe"
 InstallDir "$PROGRAMFILES\MM7DRead"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -103,8 +103,8 @@ SectionEnd
 ; Section descriptions
   LangString DESC_Section1 ${LANG_ENGLISH} "Required files"
   LangString DESC_Section2 ${LANG_ENGLISH} "Hungarian translate"
-  LangString DESC_Section1 ${LANG_HUNGARIAN} "Kötelezõ állományok"
-  LangString DESC_Section2 ${LANG_HUNGARIAN} "Magyar fordítás"
+  LangString DESC_Section1 ${LANG_HUNGARIAN} "Kï¿½telezï¿½ ï¿½llomï¿½nyok"
+  LangString DESC_Section2 ${LANG_HUNGARIAN} "Magyar fordï¿½tï¿½s"
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC01} $(DESC_Section1)
   !insertmacro MUI_DESCRIPTION_TEXT ${SEC02} $(DESC_Section2)

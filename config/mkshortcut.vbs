@@ -1,6 +1,6 @@
 '+-----------------------------------------------------------------------------+
-'| MM7DRead v0.3 * Status reader program for MM7D device                       |
-'| Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>        |
+'| MM7DRead v0.4 * Status reader program for MM7D device                       |
+'| Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                        |
 '| mkshortcut.vbs                                                              |
 '| Make shortcut                                                               |
 '+-----------------------------------------------------------------------------+
@@ -10,4 +10,3 @@ set oShellLink = WshShell.CreateShortcut(Wscript.Arguments.Named("shortcut") & "
 oShellLink.TargetPath = Wscript.Arguments.Named("target")
 oShellLink.WindowStyle = 1
 oShellLink.Save
-

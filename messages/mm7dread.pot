@@ -26,67 +26,55 @@ msgid "value"
 msgstr ""
 
 #: frmmain.message07
-msgid "IP address:"
+msgid "device"
 msgstr ""
 
 #: frmmain.message08
-msgid "MAC address:"
+msgid "sw. version"
 msgstr ""
 
 #: frmmain.message09
-msgid "Serial number:"
+msgid "MAC address"
 msgstr ""
 
 #: frmmain.message10
-msgid "Sw. version:"
+msgid "IP address"
 msgstr ""
 
 #: frmmain.message11
-msgid "Mode:"
+msgid "Modbus/RTU UID"
 msgstr ""
 
 #: frmmain.message12
-msgid "T limits:"
+msgid "serial port speed"
 msgstr ""
 
 #: frmmain.message13
-msgid "RH limits:"
+msgid "RHint [%]"
 msgstr ""
 
 #: frmmain.message14
-msgid "RGL limit:"
+msgid "Tint [°C]"
 msgstr ""
 
 #: frmmain.message15
-msgid "T:"
+msgid "Vcc [V]"
 msgstr ""
 
 #: frmmain.message16
-msgid "RH:"
+msgid "green LED"
 msgstr ""
 
 #: frmmain.message17
-msgid "RGL:"
+msgid "yellow LED"
 msgstr ""
 
 #: frmmain.message18
-msgid "G LED:"
+msgid "red LED"
 msgstr ""
 
 #: frmmain.message19
-msgid "Y LED:"
-msgstr ""
-
-#: frmmain.message20
-msgid "R LED:"
-msgstr ""
-
-#: frmmain.message21
-msgid "Your IP address is not allowed!"
-msgstr ""
-
-#: frmmain.message22
-msgid "Authentication error!"
+msgid "Cannot run default webbrowser!"
 msgstr ""
 
 #: tform1.button7.caption
@@ -97,42 +85,40 @@ msgstr ""
 msgid "Form1"
 msgstr ""
 
+#: tform1.checkbox1.caption
+msgid "auto"
+msgstr ""
+
+#: tform1.checkbox1.hint
+msgid "Automatic device read"
+msgstr ""
+
 #: tform1.combobox1.hint
 msgid "URL"
 msgstr ""
 
-#: tform1.edit1.hint
-msgid "UID"
-msgstr ""
-
 #: tform1.label1.caption
-msgid "Temperature"
+msgid "Internal relative humidity"
 msgstr ""
 
 #: tform1.label17.caption
-msgid "Relative gas concentrate"
+msgid "Power supply voltage"
 msgstr ""
 
 #: tform1.label18.caption
-msgctxt "tform1.label18.caption"
-msgid "0 %"
+msgid "0 V"
 msgstr ""
 
 #: tform1.label2.caption
-msgid "Relative humidity"
+msgid "Internal temperature"
 msgstr ""
 
 #: tform1.label3.caption
-msgid "0 °C"
-msgstr ""
-
-#: tform1.label4.caption
-msgctxt "tform1.label4.caption"
 msgid "0 %"
 msgstr ""
 
-#: tform1.label5.caption
-msgid "Status"
+#: tform1.label4.caption
+msgid "0 °C"
 msgstr ""
 
 #: tform1.label6.caption
@@ -144,11 +130,11 @@ msgid "Status reader program for MM7D device"
 msgstr ""
 
 #: tform1.label8.caption
-msgid "(C)2020-2022 Pozsár Zsolt"
+msgid "(C)2023 Pozsár Zsolt"
 msgstr ""
 
 #: tform1.label9.caption
-msgid "Web: http://www.szerafingomba.hu/softwares"
+msgid "http://www.pozsarzs.hu"
 msgstr ""
 
 #: tform1.speedbutton2.hint

@@ -1,13 +1,14 @@
 object Form1: TForm1
-  Left = 563
-  Height = 360
-  Top = 181
-  Width = 312
+  Left = 340
+  Height = 338
+  Top = 183
+  Width = 290
+  ActiveControl = ComboBox1
   Caption = 'Form1'
-  ClientHeight = 360
-  ClientWidth = 312
-  Constraints.MinHeight = 360
-  Constraints.MinWidth = 312
+  ClientHeight = 338
+  ClientWidth = 290
+  Constraints.MinHeight = 338
+  Constraints.MinWidth = 290
   Icon.Data = {
     BE0800000000010001002020000001000800A808000016000000280000002000
     0000400000000100080000000000000000000000000000000000000000000000
@@ -84,17 +85,16 @@ object Form1: TForm1
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poDefaultPosOnly
-  LCLVersion = '1.8.2.0'
+  LCLVersion = '2.2.6.0'
   object ComboBox1: TComboBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
+    AnchorSideRight.Control = SpeedButton2
     Left = 4
-    Height = 27
+    Height = 34
     Hint = 'URL'
     Top = 4
-    Width = 304
+    Width = 228
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -109,31 +109,22 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 339
-    Width = 312
+    Height = 19
+    Top = 319
+    Width = 290
     Panels = <    
       item
-        Alignment = taCenter
-        Width = 80
-      end    
-      item
-        Alignment = taCenter
-        Width = 120
-      end    
-      item
-        Width = 50
+        Width = 200
       end>
     SimplePanel = False
   end
   object SpeedButton2: TSpeedButton
     AnchorSideTop.Control = ComboBox1
-    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = SpeedButton3
-    Left = 258
+    Left = 236
     Height = 22
     Hint = 'Add URL to list'
-    Top = 35
+    Top = 8
     Width = 23
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 4
@@ -182,13 +173,12 @@ object Form1: TForm1
   end
   object SpeedButton3: TSpeedButton
     AnchorSideTop.Control = ComboBox1
-    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 285
+    Left = 263
     Height = 22
     Hint = 'Remove URL from list'
-    Top = 35
+    Top = 8
     Width = 23
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 4
@@ -235,45 +225,29 @@ object Form1: TForm1
     ShowHint = True
     ParentShowHint = False
   end
-  object Edit1: TEdit
+  object PageControl1: TPageControl
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = ComboBox1
     AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = SpeedButton2
-    Left = 4
-    Height = 27
-    Hint = 'UID'
-    Top = 35
-    Width = 250
-    Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Left = 4
-    BorderSpacing.Top = 4
-    BorderSpacing.Right = 4
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 1
-  end
-  object PageControl1: TPageControl
-    AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Button7
     Left = 4
-    Height = 227
-    Top = 68
-    Width = 304
-    ActivePage = TabSheet1
+    Height = 233
+    Top = 42
+    Width = 282
+    ActivePage = TabSheet2
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
     BorderSpacing.Bottom = 4
-    TabIndex = 0
-    TabOrder = 2
+    TabIndex = 1
+    TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Measured values'
-      ClientHeight = 192
-      ClientWidth = 298
+      ClientHeight = 202
+      ClientWidth = 272
       object Shape2: TShape
         AnchorSideLeft.Control = Bevel3
         AnchorSideTop.Control = Bevel3
@@ -334,9 +308,9 @@ object Form1: TForm1
         Left = 8
         Height = 17
         Top = 8
-        Width = 73
+        Width = 166
         BorderSpacing.Around = 4
-        Caption = 'Temperature'
+        Caption = 'Internal relative humidity'
         Font.Color = clAqua
         ParentColor = False
         ParentFont = False
@@ -347,9 +321,9 @@ object Form1: TForm1
         Left = 8
         Height = 17
         Top = 73
-        Width = 95
+        Width = 135
         BorderSpacing.Around = 4
-        Caption = 'Relative humidity'
+        Caption = 'Internal temperature'
         Font.Color = clAqua
         ParentColor = False
         ParentFont = False
@@ -358,12 +332,12 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel2
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = Bevel2
-        Left = 85
-        Height = 28
+        Left = 84
+        Height = 24
         Top = 27
-        Width = 38
+        Width = 41
         BorderSpacing.Top = 23
-        Caption = '0 °C'
+        Caption = '0 %'
         Font.Color = clAqua
         Font.Height = 20
         Font.Style = [fsBold]
@@ -374,12 +348,12 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel3
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = Bevel3
-        Left = 87
-        Height = 28
+        Left = 81
+        Height = 24
         Top = 92
-        Width = 34
+        Width = 46
         BorderSpacing.Top = 23
-        Caption = '0 %'
+        Caption = '0 °C'
         Font.Color = clAqua
         Font.Height = 20
         Font.Style = [fsBold]
@@ -420,9 +394,9 @@ object Form1: TForm1
         Left = 8
         Height = 17
         Top = 138
-        Width = 137
+        Width = 140
         BorderSpacing.Around = 4
-        Caption = 'Relative gas concentrate'
+        Caption = 'Power supply voltage'
         Font.Color = clAqua
         ParentColor = False
         ParentFont = False
@@ -431,81 +405,85 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel16
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = Bevel16
-        Left = 87
-        Height = 28
+        Left = 86
+        Height = 24
         Top = 157
-        Width = 34
+        Width = 36
         BorderSpacing.Top = 23
-        Caption = '0 %'
+        Caption = '0 V'
         Font.Color = clAqua
         Font.Height = 20
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
       end
-      object Bevel1: TBevel
+      object CheckBox1: TCheckBox
         AnchorSideLeft.Control = Bevel2
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = TabSheet1
+        Left = 208
+        Height = 23
+        Hint = 'Automatic device read'
+        Top = 4
+        Width = 55
+        BorderSpacing.Around = 4
+        Caption = 'auto'
+        OnChange = CheckBox1Change
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+      end
+      object Bevel1: TBevel
+        AnchorSideLeft.Control = Bevel2
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = CheckBox1
+        AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = TabSheet1
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = Bevel16
         AnchorSideBottom.Side = asrBottom
         Left = 208
-        Height = 187
-        Top = 4
-        Width = 86
+        Height = 160
+        Top = 31
+        Width = 60
         Anchors = [akTop, akLeft, akRight, akBottom]
         BorderSpacing.Around = 4
       end
-      object Shape4: TShape
-        AnchorSideTop.Side = asrCenter
-        Left = 239
+      object Shape3: TShape
+        Left = 224
         Height = 25
         Top = 56
-        Width = 20
+        Width = 35
         Brush.Color = clGreen
         ParentShowHint = False
+        Pen.Width = 2
+        Shape = stCircle
+      end
+      object Shape4: TShape
+        Left = 224
+        Height = 25
+        Top = 96
+        Width = 35
+        Brush.Color = clOlive
+        ParentShowHint = False
+        Pen.Width = 2
         Shape = stCircle
       end
       object Shape5: TShape
-        AnchorSideTop.Side = asrCenter
-        Left = 239
+        Left = 224
         Height = 25
-        Top = 121
-        Width = 20
+        Top = 138
+        Width = 35
         Brush.Color = clMaroon
         ParentShowHint = False
+        Pen.Width = 2
         Shape = stCircle
-      end
-      object Shape8: TShape
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Side = asrCenter
-        AnchorSideRight.Control = Bevel1
-        AnchorSideRight.Side = asrCenter
-        AnchorSideBottom.Control = Bevel2
-        AnchorSideBottom.Side = asrCenter
-        Left = 239
-        Height = 25
-        Top = 89
-        Width = 20
-        Brush.Color = clOlive
-        ParentShowHint = False
-        Shape = stCircle
-      end
-      object Label5: TLabel
-        Left = 231
-        Height = 17
-        Top = 16
-        Width = 35
-        Caption = 'Status'
-        ParentColor = False
       end
     end
     object TabSheet2: TTabSheet
       Caption = 'Summary'
-      ClientHeight = 192
-      ClientWidth = 298
+      ClientHeight = 202
+      ClientWidth = 272
       object ValueListEditor1: TValueListEditor
         AnchorSideLeft.Control = TabSheet2
         AnchorSideTop.Control = TabSheet2
@@ -514,15 +492,15 @@ object Form1: TForm1
         AnchorSideBottom.Control = TabSheet2
         AnchorSideBottom.Side = asrBottom
         Left = 4
-        Height = 184
+        Height = 194
         Top = 4
-        Width = 290
+        Width = 264
         Anchors = [akTop, akLeft, akRight, akBottom]
         BorderSpacing.Around = 4
+        DefaultColWidth = 0
         FixedCols = 0
-        RowCount = 14
+        RowCount = 12
         TabOrder = 0
-        DisplayOptions = [doColumnTitles, doAutoColResize]
         Options = [goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking, goColSpanning, goDblClickAutoSize, goSelectionActive]
         Strings.Strings = (
           ''
@@ -536,19 +514,17 @@ object Form1: TForm1
           ''
           ''
           ''
-          ''
-          ''
         )
         ColWidths = (
-          136
-          137
+          170
+          79
         )
       end
     end
     object TabSheet3: TTabSheet
       Caption = 'System log'
-      ClientHeight = 192
-      ClientWidth = 298
+      ClientHeight = 202
+      ClientWidth = 272
       object Memo1: TMemo
         AnchorSideLeft.Control = TabSheet3
         AnchorSideTop.Control = TabSheet3
@@ -557,9 +533,9 @@ object Form1: TForm1
         AnchorSideBottom.Control = TabSheet3
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 192
+        Height = 202
         Top = 0
-        Width = 298
+        Width = 272
         Anchors = [akTop, akLeft, akRight, akBottom]
         HideSelection = False
         ReadOnly = True
@@ -570,8 +546,8 @@ object Form1: TForm1
     end
     object TabSheet4: TTabSheet
       Caption = 'About'
-      ClientHeight = 192
-      ClientWidth = 298
+      ClientHeight = 202
+      ClientWidth = 272
       object Bevel4: TBevel
         AnchorSideLeft.Control = TabSheet4
         AnchorSideTop.Control = TabSheet4
@@ -580,19 +556,19 @@ object Form1: TForm1
         AnchorSideBottom.Control = TabSheet4
         AnchorSideBottom.Side = asrBottom
         Left = 4
-        Height = 184
+        Height = 194
         Top = 4
-        Width = 290
+        Width = 264
         Anchors = [akTop, akLeft, akRight, akBottom]
         BorderSpacing.Around = 4
       end
       object Label6: TLabel
         AnchorSideLeft.Control = TabSheet4
         AnchorSideLeft.Side = asrCenter
-        Left = 129
+        Left = 111
         Height = 17
         Top = 32
-        Width = 40
+        Width = 51
         Caption = 'Label6'
         Font.Style = [fsBold]
         ParentColor = False
@@ -600,33 +576,45 @@ object Form1: TForm1
       end
       object Label7: TLabel
         AnchorSideLeft.Control = TabSheet4
-        AnchorSideLeft.Side = asrCenter
-        Left = 36
-        Height = 17
+        AnchorSideRight.Control = TabSheet4
+        AnchorSideRight.Side = asrBottom
+        Left = 16
+        Height = 34
         Top = 56
-        Width = 227
+        Width = 240
+        Alignment = taCenter
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 16
+        BorderSpacing.Right = 16
         Caption = 'Status reader program for MM7D device'
         ParentColor = False
+        WordWrap = True
       end
       object Label8: TLabel
         AnchorSideLeft.Control = TabSheet4
         AnchorSideLeft.Side = asrCenter
-        Left = 76
+        Left = 69
         Height = 17
-        Top = 72
-        Width = 147
-        Caption = '(C)2020-2022 Pozsár Zsolt'
+        Top = 128
+        Width = 135
+        Caption = '(C)2023 Pozsár Zsolt'
         ParentColor = False
       end
       object Label9: TLabel
         AnchorSideLeft.Control = TabSheet4
         AnchorSideLeft.Side = asrCenter
-        Left = 22
+        Cursor = crHandPoint
+        Left = 61
         Height = 17
         Top = 152
-        Width = 254
-        Caption = 'Web: http://www.szerafingomba.hu/softwares'
+        Width = 151
+        Caption = 'http://www.pozsarzs.hu'
+        Font.Color = clBlue
         ParentColor = False
+        ParentFont = False
+        OnClick = Label9Click
+        OnMouseEnter = Label9MouseEnter
+        OnMouseLeave = Label9MouseLeave
       end
     end
   end
@@ -639,13 +627,35 @@ object Form1: TForm1
     AnchorSideBottom.Control = StatusBar1
     Left = 4
     Height = 36
-    Top = 299
-    Width = 304
+    Top = 279
+    Width = 282
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Around = 4
     Caption = '&Refresh displays'
     Enabled = False
     OnClick = Button7Click
-    TabOrder = 3
+    TabOrder = 2
+  end
+  object Process1: TProcess
+    Active = False
+    Options = []
+    Priority = ppNormal
+    StartupOptions = []
+    ShowWindow = swoNone
+    WindowColumns = 0
+    WindowHeight = 0
+    WindowLeft = 0
+    WindowRows = 0
+    WindowTop = 0
+    WindowWidth = 0
+    FillAttribute = 0
+    Left = 8
+    Top = 304
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 40
+    Top = 304
   end
 end

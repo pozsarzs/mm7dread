@@ -1,12 +1,62 @@
 Installation instruction
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
-1. Linux
-~~~~~~~~
-a. From source package
+1. FreeBSD
+~~~~~~~~~~
+a. From binary (txz) package
+
+   Use package manager to install/remove application.
+
+b. From source package
 
    Build and install:
-   $ tar -xzf mm7dread-0.3.tar.gz
+   # tar -xzf mm7dread-0.4.tar.gz
+   # ./configure
+   # make
+   # make install
+
+   Remove:
+   # make uninstall
+
+2. Linux
+~~~~~~~~
+a. From binary (deb, rpm, txz) package
+
+   Use package manager to install/remove application.
+
+b. From binary (bin) package
+
+   Install:
+   # ./mm7dread-0.4-i586.bin
+
+   Remove:
+   # /opt/mm7dread/uninstall
+
+c. From binary (tar.gz) package
+
+   Install:
+   # cp mm7dread-0.4-i586.tar.gz /opt
+   # cd /opt
+   # tar -xzf mm7dread-0.4-i586.tar.gz
+   # cd mm7dread
+   # ./create_links
+            or
+   # tar -xzf mm7dread-0.4-i586.tar.gz
+   # cd mm7dread
+   # ./install
+
+   Remove:
+   # /opt/mm7dread/remove_links
+   # rm -r /opt/mm7dread/
+            or
+   # /opt/mm7dread/uninstall
+
+d. From source package
+
+   Build and install:
+   $ tar -xzf mm7dread-0.4.tar.gz
+            or
+   $ git clone https://github.com/pozsarzs/mm7dread.git
    $ ./configure
    $ make
    # make install
@@ -14,40 +64,29 @@ a. From source package
    Remove:
    # make uninstall
 
-b. From binary package
-
-   Install:
-   # tar -xzf mm7dread-0.3-*.tar.gz
-   # cd mm7dread
-   # ./create_links
-            or
-   # tar -xzf mm7dread-0.3-*.tar.gz
-   # cd mm7dread
-   # ./install
-
-   Remove:
-   # cd mm7dread
-   # ./remove_links
-   # cd ..
-   # rm -r mm7dread
-            or
-   # /opt/mm7dread/uninstall
-
-2. Windows
+3. Windows
 ~~~~~~~~~~
-a. From source package
+a. From binary (exe) package
+
+   Run installer file and follow intructions.
+
+b. From binary (msi) package
+
+   > msiexec.exe /i mm7dread-0.4-win32.msi (or double-click to open package)
+
+c. From binary (zip) package
+
+   > unzip mm7dread-0.4-win32.zip          (or use unpacking application)
+
+d. From source package
 
    Build and install:
-   > tar -xzf mm7dread-0.3.tar.gz
+   > tar -xzf mm7dread-0.4.tar.gz          (or use unpacking application)
    > build.bat
    > build.bat install
 
    Remove:
    > build.bat uninstall
 
-c. From binary package
-
-   > unzip mm7dread-0.3-win32.zip
-
----------------------------------------------------------------------------------
- MM7DRead * Copyright (C) 2020-2022 Pozsár Zsolt <pozsar.zsolt@szerafingomba.hu>
+--------------------------------------------------------------------------------
+ MM7DRead * Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>
