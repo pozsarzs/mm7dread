@@ -22,7 +22,7 @@
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="mm17dread.lpr"/>
+        <Filename Value="mm7dread.lpr"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="7"/>
         <UsageCount Value="75"/>
@@ -35,14 +35,14 @@
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="../../Git/NEW/mm17dread/source/config.pas"/>
+        <Filename Value="../../Git/NEW/mm7dread/source/config.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="53" Y="16"/>
         <UsageCount Value="7"/>
       </Unit4>
       <Unit5>
-        <Filename Value="../../Git/NEW/mm17dread/source/config.pas.in"/>
+        <Filename Value="../../Git/NEW/mm7dread/source/config.pas.in"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="3" Y="19"/>

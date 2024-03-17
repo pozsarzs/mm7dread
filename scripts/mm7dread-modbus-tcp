@@ -2,8 +2,8 @@
 # +----------------------------------------------------------------------------+
 # | MM7DRead v0.4 * Status reader program for MM7D device                      |
 # | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
-# | mm17dread-modbus-tcp                                                       |
-# | Read all data from MM17D device with Modbus/TCP protocol                   |
+# | mm7dread-modbus-tcp                                                        |
+# | Read all data from MM7D device with Modbus/TCP protocol                    |
 # +----------------------------------------------------------------------------+
 
 #   This program is free software: you can redistribute it and/or modify it
