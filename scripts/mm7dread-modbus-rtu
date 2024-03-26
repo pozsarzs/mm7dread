@@ -23,7 +23,7 @@
 
 # constants
 PRGNAME="modpoll"
-PRGARGS="-m rtu -b9600 -d 8 -s 1 -p none -a 1 -o 2 -1 -r 1"
+PRGARGS="-m rtu -b9600 -d 8 -s 1 -p none -o 2 -1 -r 1"
 # Used modpoll parameters:
 #  -m rtu        MODBUS/RTU protocol
 #  -b #          Baudrate
@@ -37,7 +37,7 @@ PRGARGS="-m rtu -b9600 -d 8 -s 1 -p none -a 1 -o 2 -1 -r 1"
 
 # messages
 MSG=("MM17DRead-Modbus/RTU data reader script v0.1\n" \
-     "Usage:\n\t$0 device\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
+     "Usage:\n\t$0 device uid\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
      "ERROR #2: There is not '"$PRGNAME"' program!" \
      "ERROR #3: "\
      "ERROR #4: " \
@@ -71,17 +71,17 @@ function readdevice()
   #  -t 3          16-bit input register data type
   #  -t 4          16-bit output (holding) register data type (default)
   message 10
-  if ! $PRGNAME $PRGARGS -c 3 -t 3 $1 | grep "\[";
+  if ! $PRGNAME $PRGARGS -a $2 -c 3 -t 3 $1 | grep "\[";
   then
     return 1
   else
     message 9
-    if ! $PRGNAME $PRGARGS -c 3 -t 1 $1 | grep "\[";
+    if ! $PRGNAME $PRGARGS -a $2 -c 3 -t 1 $1 | grep "\[";
     then
       return 1
     else
       message 11
-      if ! $PRGNAME $PRGARGS -c 28 -t 4 $1 | grep "\[";
+      if ! $PRGNAME $PRGARGS -a $2 -c 28 -t 4 $1 | grep "\[";
       then
         return 1
       fi
@@ -103,7 +103,12 @@ else
     "-v") message 0; exit 0;;
     "--help") message 0; message 1; message 7;  exit 0;;
     "--version") message 0; exit 0;;
-  esac	
+  esac
+  if [ $# -eq 1 ]
+  then
+    message 1
+    exit 1
+  fi
   if checkprog $PRG;
   then
     if readdevice $1 $2
