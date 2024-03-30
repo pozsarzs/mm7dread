@@ -41,14 +41,20 @@ msgid "device"
 msgstr "eszköz"
 
 #: frmmain.message08
+#, fuzzy
+#| msgid "Sw. version:"
 msgid "sw. version"
 msgstr "sw. változat"
 
 #: frmmain.message09
+#, fuzzy
+#| msgid "MAC address"
 msgid "MAC address"
 msgstr "MAC cím"
 
 #: frmmain.message10
+#, fuzzy
+#| msgid "IP address"
 msgid "IP address"
 msgstr "IP cím"
 
@@ -89,6 +95,8 @@ msgid "Cannot run default webbrowser!"
 msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
 
 #: tform1.button7.caption
+#, fuzzy
+#| msgid "&Refresh"
 msgid "&Refresh displays"
 msgstr "Kijelzők f&rissítése"
 
@@ -137,12 +145,16 @@ msgid "Label6"
 msgstr "Label6"
 
 #: tform1.label7.caption
+#, fuzzy
+#| msgid "Status reader program for MM6D device"
 msgid "Status reader program for MM7D device"
 msgstr "Állapotolvasó program MM7D eszközhöz"
 
 #: tform1.label8.caption
-msgid "(C)2023 Pozsár Zsolt"
-msgstr "(C)2023 Pozsár Zsolt"
+#, fuzzy
+#| msgid "(C) 2020-2022 Pozsár Zsolt"
+msgid "(C)2020-2023 Pozsár Zsolt"
+msgstr "(C)2020-2023 Pozsár Zsolt"
 
 #: tform1.label9.caption
 msgid "http://www.pozsarzs.hu"
@@ -171,6 +183,41 @@ msgstr "Rendszernapló"
 #: tform1.tabsheet4.caption
 msgid "About"
 msgstr "Névjegy"
+
+#, fuzzy
+#~ msgid "Serial number:"
+#~ msgstr "Sorozatszám:"
+
+#, fuzzy
+#~ msgid "Mode:"
+#~ msgstr "Mód:"
+
+#~ msgid "Alarm:"
+#~ msgstr "Riasztó:"
+
+#~ msgid "Authentication error!"
+#~ msgstr "Hitelesítési hiba!"
+
+#, fuzzy
+#~ msgid "UID"
+#~ msgstr "UID"
+
+#~ msgid " Status "
+#~ msgstr "Állapot"
+
+#, fuzzy
+#~ msgid " Outputs "
+#~ msgstr "Kimenetek"
+
+#~ msgid "Heater"
+#~ msgstr "Fűtés"
+
+#~ msgid "Manual mode"
+#~ msgstr "Kézi üzem"
+
+#, fuzzy
+#~ msgid "Status"
+#~ msgstr "Állapot"
 
 #, fuzzy
 #~| msgctxt "tform1.label17.caption"

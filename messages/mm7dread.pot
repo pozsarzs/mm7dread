@@ -130,7 +130,7 @@ msgid "Status reader program for MM7D device"
 msgstr ""
 
 #: tform1.label8.caption
-msgid "(C)2023 Pozsár Zsolt"
+msgid "(C)2020-2023 Pozsár Zsolt"
 msgstr ""
 
 #: tform1.label9.caption

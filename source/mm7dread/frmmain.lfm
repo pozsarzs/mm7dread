@@ -236,13 +236,13 @@ object Form1: TForm1
     Height = 233
     Top = 42
     Width = 282
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
     BorderSpacing.Bottom = 4
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Measured values'
@@ -593,11 +593,11 @@ object Form1: TForm1
       object Label8: TLabel
         AnchorSideLeft.Control = TabSheet4
         AnchorSideLeft.Side = asrCenter
-        Left = 69
+        Left = 50
         Height = 17
         Top = 128
-        Width = 135
-        Caption = '(C)2023 Pozsár Zsolt'
+        Width = 172
+        Caption = '(C)2020-2023 Pozsár Zsolt'
         ParentColor = False
       end
       object Label9: TLabel
