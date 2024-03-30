@@ -36,7 +36,7 @@ PRGARGS="-m rtu -b9600 -d 8 -s 1 -p none -o 2 -1 -r 1"
 #  -r #          Start reference
 
 # messages
-MSG=("MM17DRead-Modbus/RTU data reader script v0.1\n" \
+MSG=("MM7DRead-Modbus/RTU data reader script v0.1\n" \
      "Usage:\n\t$0 device uid\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
      "ERROR #2: There is not '"$PRGNAME"' program!" \
      "ERROR #3: "\

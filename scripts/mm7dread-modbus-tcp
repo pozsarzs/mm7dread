@@ -32,7 +32,7 @@ PRGARGS="-m tcp -a 1 -o 1 -1 -r 1"
 #  -r #          Start reference
 
 # messages
-MSG=("MM17DRead-Modbus/TCP data reader script v0.1\n" \
+MSG=("MM7DRead-Modbus/TCP data reader script v0.1\n" \
      "Usage:\n\t$0 IP_address\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
      "ERROR #2: There is not '"$PRGNAME"' program!" \
      "ERROR #3: Bad IP address!" \

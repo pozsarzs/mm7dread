@@ -25,7 +25,7 @@
 PRGNAME="wget"
 PRGARGS="--quiet --output-document -"
 # messages
-MSG=("MM17DRead-HTTP data reader script v0.1\n" \
+MSG=("MM7DRead-HTTP data reader script v0.1\n" \
      "Usage:\n\t$0 IP_address csv|json|txt|xml\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
      "ERROR #2: There is not '"$PRGNAME"' program!" \
      "ERROR #3: Bad IP address!" \
