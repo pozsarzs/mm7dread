@@ -1,7 +1,7 @@
 #!/bin/bash
 # +----------------------------------------------------------------------------+
-# | MM7DRead v0.4 * Status reader program for MM7D device                      |
-# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | MM6DRead v0.4 * Status reader program for MM6D device                      |
+# | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                  |
 # | uninstall                                                                  |
 # | Uninstaller script                                                         |
 # +----------------------------------------------------------------------------+
