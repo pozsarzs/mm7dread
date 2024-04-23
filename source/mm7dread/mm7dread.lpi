@@ -23,7 +23,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="4"/>
-      <StringTable Comments="Status reader for MM7D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2023 Pozsár Zsolt" ProductName="MM7DRead" ProductVersion="0.4"/>
+      <StringTable Comments="Status reader for MM7D device" CompanyName="Pozsár Zsolt" LegalCopyright="(C) 2020-2023 Pozsár Zsolt" ProductName="MM7DRead" ProductVersion="0.4"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

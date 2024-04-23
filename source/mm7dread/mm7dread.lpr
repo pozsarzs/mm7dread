@@ -1,6 +1,6 @@
 { +--------------------------------------------------------------------------+ }
 { | MM7DRead v0.1 * Status reader program for MM7D device                    | }
-{ | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                     | }
+{ | Copyright (C) 2020-2023 Pozsár Zsolt <pozsarzs@gmail.com>                | }
 { | mm7dread.lpr                                                             | }
 { | Project file                                                             | }
 { +--------------------------------------------------------------------------+ }
