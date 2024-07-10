@@ -86,7 +86,7 @@ msgid "Form1"
 msgstr ""
 
 #: tform1.checkbox1.caption
-msgid "auto"
+msgid "au&to"
 msgstr ""
 
 #: tform1.checkbox1.hint
@@ -135,6 +135,18 @@ msgstr ""
 
 #: tform1.label9.caption
 msgid "http://www.pozsarzs.hu"
+msgstr ""
+
+#: tform1.shape3.hint
+msgid "Normal operation"
+msgstr ""
+
+#: tform1.shape4.hint
+msgid "Reading device"
+msgstr ""
+
+#: tform1.shape5.hint
+msgid "Error"
 msgstr ""
 
 #: tform1.speedbutton2.hint

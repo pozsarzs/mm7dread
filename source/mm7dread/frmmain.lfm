@@ -94,7 +94,7 @@ object Form1: TForm1
     Height = 34
     Hint = 'URL'
     Top = 4
-    Width = 228
+    Width = 230
     Anchors = [akTop, akLeft, akRight]
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
@@ -121,16 +121,17 @@ object Form1: TForm1
   object SpeedButton2: TSpeedButton
     AnchorSideTop.Control = ComboBox1
     AnchorSideRight.Control = SpeedButton3
-    Left = 236
-    Height = 22
+    AnchorSideBottom.Control = ComboBox1
+    AnchorSideBottom.Side = asrBottom
+    Left = 238
+    Height = 30
     Hint = 'Add URL to list'
     Top = 8
     Width = 23
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Top = 4
-    BorderSpacing.Right = 4
+    BorderSpacing.Right = 2
     Enabled = False
-    Flat = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       20000000000000040000640000006400000000000000000000000000000A6669
@@ -175,16 +176,17 @@ object Form1: TForm1
     AnchorSideTop.Control = ComboBox1
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = ComboBox1
+    AnchorSideBottom.Side = asrBottom
     Left = 263
-    Height = 22
+    Height = 30
     Hint = 'Remove URL from list'
     Top = 8
     Width = 23
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Top = 4
     BorderSpacing.Right = 4
     Enabled = False
-    Flat = True
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       20000000000000040000640000006400000000000000000000000000000A6669
@@ -427,7 +429,7 @@ object Form1: TForm1
         Top = 4
         Width = 55
         BorderSpacing.Around = 4
-        Caption = 'auto'
+        Caption = 'au&to'
         OnChange = CheckBox1Change
         ParentShowHint = False
         ShowHint = True
@@ -451,33 +453,36 @@ object Form1: TForm1
       end
       object Shape3: TShape
         Left = 224
-        Height = 25
+        Height = 16
+        Hint = 'Normal operation'
         Top = 56
-        Width = 35
+        Width = 24
         Brush.Color = clGreen
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape4: TShape
         Left = 224
-        Height = 25
+        Height = 16
+        Hint = 'Reading device'
         Top = 96
-        Width = 35
+        Width = 24
         Brush.Color = clOlive
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
       object Shape5: TShape
         Left = 224
-        Height = 25
+        Height = 16
+        Hint = 'Error'
         Top = 138
-        Width = 35
+        Width = 24
         Brush.Color = clMaroon
         ParentShowHint = False
         Pen.Width = 2
-        Shape = stCircle
+        Shape = stRoundRect
       end
     end
     object TabSheet2: TTabSheet
@@ -517,7 +522,7 @@ object Form1: TForm1
         )
         ColWidths = (
           170
-          79
+          87
         )
       end
     end

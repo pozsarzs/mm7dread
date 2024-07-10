@@ -41,20 +41,14 @@ msgid "device"
 msgstr "eszköz"
 
 #: frmmain.message08
-#, fuzzy
-#| msgid "Sw. version:"
 msgid "sw. version"
 msgstr "sw. változat"
 
 #: frmmain.message09
-#, fuzzy
-#| msgid "MAC address"
 msgid "MAC address"
 msgstr "MAC cím"
 
 #: frmmain.message10
-#, fuzzy
-#| msgid "IP address"
 msgid "IP address"
 msgstr "IP cím"
 
@@ -95,8 +89,6 @@ msgid "Cannot run default webbrowser!"
 msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
 
 #: tform1.button7.caption
-#, fuzzy
-#| msgid "&Refresh"
 msgid "&Refresh displays"
 msgstr "Kijelzők f&rissítése"
 
@@ -105,8 +97,8 @@ msgid "Form1"
 msgstr "Form1"
 
 #: tform1.checkbox1.caption
-msgid "auto"
-msgstr "auto"
+msgid "au&to"
+msgstr "au&to"
 
 #: tform1.checkbox1.hint
 msgid "Automatic device read"
@@ -145,20 +137,28 @@ msgid "Label6"
 msgstr "Label6"
 
 #: tform1.label7.caption
-#, fuzzy
-#| msgid "Status reader program for MM6D device"
 msgid "Status reader program for MM7D device"
 msgstr "Állapotolvasó program MM7D eszközhöz"
 
 #: tform1.label8.caption
-#, fuzzy
-#| msgid "(C) 2020-2022 Pozsár Zsolt"
 msgid "(C)2020-2023 Pozsár Zsolt"
 msgstr "(C)2020-2023 Pozsár Zsolt"
 
 #: tform1.label9.caption
 msgid "http://www.pozsarzs.hu"
 msgstr "http://www.pozsarzs.hu"
+
+#: tform1.shape3.hint
+msgid "Normal operation"
+msgstr "Normál működés"
+
+#: tform1.shape4.hint
+msgid "Reading device"
+msgstr "Eszköz olvasása"
+
+#: tform1.shape5.hint
+msgid "Error"
+msgstr "Hiba"
 
 #: tform1.speedbutton2.hint
 msgid "Add URL to list"
@@ -183,6 +183,9 @@ msgstr "Rendszernapló"
 #: tform1.tabsheet4.caption
 msgid "About"
 msgstr "Névjegy"
+
+#~ msgid "auto"
+#~ msgstr "auto"
 
 #, fuzzy
 #~ msgid "Serial number:"
