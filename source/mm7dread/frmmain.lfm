@@ -250,6 +250,30 @@ object Form1: TForm1
       Caption = 'Measured values'
       ClientHeight = 202
       ClientWidth = 272
+      object Bevel7: TBevel
+        AnchorSideLeft.Control = Bevel1
+        AnchorSideLeft.Side = asrCenter
+        Left = 225
+        Height = 18
+        Top = 56
+        Width = 26
+      end
+      object Bevel6: TBevel
+        AnchorSideLeft.Control = Bevel1
+        AnchorSideLeft.Side = asrCenter
+        Left = 225
+        Height = 18
+        Top = 96
+        Width = 26
+      end
+      object Bevel5: TBevel
+        AnchorSideLeft.Control = Bevel1
+        AnchorSideLeft.Side = asrCenter
+        Left = 225
+        Height = 18
+        Top = 136
+        Width = 26
+      end
       object Shape2: TShape
         AnchorSideLeft.Control = Bevel3
         AnchorSideTop.Control = Bevel3
@@ -308,12 +332,13 @@ object Form1: TForm1
         AnchorSideTop.Control = Bevel2
         AnchorSideBottom.Side = asrBottom
         Left = 8
-        Height = 17
+        Height = 14
         Top = 8
-        Width = 166
+        Width = 133
         BorderSpacing.Around = 4
-        Caption = 'Internal relative humidity'
+        Caption = 'Indoor relative humidity'
         Font.Color = clAqua
+        Font.Height = 11
         ParentColor = False
         ParentFont = False
       end
@@ -321,12 +346,13 @@ object Form1: TForm1
         AnchorSideLeft.Control = Bevel3
         AnchorSideTop.Control = Bevel3
         Left = 8
-        Height = 17
+        Height = 14
         Top = 73
-        Width = 135
+        Width = 109
         BorderSpacing.Around = 4
-        Caption = 'Internal temperature'
+        Caption = 'Indoor temperature'
         Font.Color = clAqua
+        Font.Height = 11
         ParentColor = False
         ParentFont = False
       end
@@ -394,12 +420,13 @@ object Form1: TForm1
         AnchorSideTop.Control = Bevel16
         AnchorSideBottom.Side = asrBottom
         Left = 8
-        Height = 17
+        Height = 14
         Top = 138
-        Width = 140
+        Width = 119
         BorderSpacing.Around = 4
         Caption = 'Power supply voltage'
         Font.Color = clAqua
+        Font.Height = 11
         ParentColor = False
         ParentFont = False
       end
@@ -442,47 +469,74 @@ object Form1: TForm1
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = TabSheet1
         AnchorSideRight.Side = asrBottom
-        AnchorSideBottom.Control = Bevel16
+        AnchorSideBottom.Control = TabSheet1
         AnchorSideBottom.Side = asrBottom
         Left = 208
-        Height = 160
+        Height = 164
         Top = 31
         Width = 60
         Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Bottom = 3
         BorderSpacing.Around = 4
+        Shape = bsFrame
       end
       object Shape3: TShape
-        Left = 224
-        Height = 16
+        AnchorSideLeft.Control = Bevel7
+        AnchorSideTop.Control = Bevel7
+        AnchorSideRight.Control = Bevel7
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel7
+        AnchorSideBottom.Side = asrBottom
+        Left = 227
+        Height = 14
         Hint = 'Normal operation'
-        Top = 56
-        Width = 24
+        Top = 58
+        Width = 22
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
         Brush.Color = clGreen
         ParentShowHint = False
-        Pen.Width = 2
         Shape = stRoundRect
+        ShowHint = True
       end
       object Shape4: TShape
-        Left = 224
-        Height = 16
+        AnchorSideLeft.Control = Bevel6
+        AnchorSideTop.Control = Bevel6
+        AnchorSideRight.Control = Bevel6
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel6
+        AnchorSideBottom.Side = asrBottom
+        Left = 227
+        Height = 14
         Hint = 'Reading device'
-        Top = 96
-        Width = 24
+        Top = 98
+        Width = 22
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
         Brush.Color = clOlive
         ParentShowHint = False
-        Pen.Width = 2
         Shape = stRoundRect
+        ShowHint = True
       end
       object Shape5: TShape
-        Left = 224
-        Height = 16
+        AnchorSideLeft.Control = Bevel5
+        AnchorSideTop.Control = Bevel5
+        AnchorSideRight.Control = Bevel5
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel5
+        AnchorSideBottom.Side = asrBottom
+        Left = 227
+        Height = 14
         Hint = 'Error'
         Top = 138
-        Width = 24
+        Width = 22
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
         Brush.Color = clMaroon
         ParentShowHint = False
-        Pen.Width = 2
+        Pen.Width = 0
         Shape = stRoundRect
+        ShowHint = True
       end
     end
     object TabSheet2: TTabSheet
@@ -522,7 +576,7 @@ object Form1: TForm1
         )
         ColWidths = (
           170
-          87
+          79
         )
       end
     end

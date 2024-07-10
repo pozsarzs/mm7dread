@@ -30,6 +30,9 @@ type
     Bevel2: TBevel;
     Bevel3: TBevel;
     Bevel4: TBevel;
+    Bevel5: TBevel;
+    Bevel6: TBevel;
+    Bevel7: TBevel;
     Button7: TButton;
     CheckBox1: TCheckBox;
     ComboBox1: TComboBox;
